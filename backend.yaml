@@ -3,10 +3,14 @@
   become: yes
   tasks:
   - name: Disable default NodeJS server
-    ansible.builtin.command: dnf module disable nodejs -y
+    ansible.builtin.command: #dnf module disable nodejs -y
+      name: nodejs
+      state: absent
 
   - name: Enable NodeJS server
-    ansible.builtin.command: dnf module enable nodejs:20 -y
+    ansible.builtin.command: #dnf module enable nodejs:20 -y
+      name: nodejs:20
+      state: enabled
 
   - name: Install NodeJS server
     ansible.builtin.dnf:
