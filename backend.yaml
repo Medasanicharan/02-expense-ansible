@@ -31,5 +31,11 @@
     ansible.builtin.unarchive:
       src: /tmp/backend.zip
       dest: /app
+      remote_src: yes
+
+  - name: Install npm dependencies
+    community.general.npm:
+      name: coffee-script
+      path: /app/npm install
 
   
