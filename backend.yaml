@@ -16,8 +16,12 @@
 
   - name: Install NodeJS server
     ansible.builtin.dnf:
-      name: nodejs
-      state: latest
+      name: "{{ item.name }}"
+      state: "{{ item.state }}"
+    loop:
+    - {name: 'nodejs', state: latest}
+    - {name: 'mysql', state: latest}
+
 
   - name: create expense user
     ansible.builtin.user:
@@ -61,7 +65,7 @@
       - cryptography
       executable: pip3.9
 
-  - name: import dta into mysql
+  - name: import data into mysql
     community.mysql.mysql_db:
       login_user: root
       login_password: "{{PASSWORD}}"
