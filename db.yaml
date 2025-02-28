@@ -28,3 +28,4 @@
       login_user: root
       login_password: "{{PASSWORD}}"
       login_host: "{{login_host}}"
+      filter: version
