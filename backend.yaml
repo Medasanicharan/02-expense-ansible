@@ -5,7 +5,7 @@
   - name: Disable default NodeJS server
     ansible.builtin.service: #dnf module disable nodejs -y
       name: nodejs
-      state: absent
+      state: stopped
 
   - name: Enable NodeJS server
     ansible.builtin.command: #dnf module enable nodejs:20 -y
