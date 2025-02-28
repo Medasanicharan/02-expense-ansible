@@ -1,0 +1,30 @@
+- name: cnfigure DB server
+  hosts: db
+  become: yes
+  vars:
+    login_host: db.daws78s.xyz
+  vars_prompt:
+  - name: PASSWORD
+    prompt: please enter your password
+    private: false
+  tasks:
+  - name: Install MySQL server
+    ansile.builtin.dnf:
+      name: mysql-server
+      state: latest
+  
+  - name: Start MySQL server
+    ansile.builtin.service:
+      name: mysqld
+      enabled: yes
+  
+  - name: Enable MySQL server
+    ansile.builtin.service:
+      name: mysqld
+      enabled: yes
+
+  - name: setting up root password
+    community.mysql.mysql_info:
+      login_user: root
+      login_password: "{{PASSWORD}}"
+      login_host: "{{login_host}}"
