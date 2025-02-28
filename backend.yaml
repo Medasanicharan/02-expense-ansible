@@ -46,8 +46,8 @@
 
   - name: Install npm dependencies
     community.general.npm: npm install
-      args: 
-        chdir: /app
+    args: 
+      chdir: /app
 
   - name: Copy backend service
     ansible.builtin.copy:
