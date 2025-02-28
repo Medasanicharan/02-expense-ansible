@@ -29,3 +29,8 @@
       login_password: "{{PASSWORD}}"
       login_host: "{{login_host}}"
       filter: version
+      registe: mysql_connection_output
+
+  - name: print the output
+    ansible.builtin.debug:
+      msg: "output: {{mysql_connection_output}}"
