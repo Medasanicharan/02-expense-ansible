@@ -1,6 +1,12 @@
 - name: configure backend server
   hosts: backend
   become: yes
+  vars:
+    login_host: db.daws78s.xyz
+  vars_prompt:
+  - name: PASSWORD
+    prompt: please enter your password
+    private: false
   tasks:
   - name: Disable default NodeJS server
     ansible.builtin.command: dnf module disable nodejs -y
@@ -47,6 +53,15 @@
     ansible.builtin.copy:
       src: backend.service
       dest: /etc/systemd/system/backend.service
+
+  - name: check DB connection
+    community.mysql.mysql_info:
+      login_user: root
+      login_password: "{{PASSWORD}}"
+      login_host: "{{login_host}}"
+      filter: version
+      target: /app/schema/backend.sql
+      state: dump #import
 
   
 
