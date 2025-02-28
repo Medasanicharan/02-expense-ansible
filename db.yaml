@@ -9,17 +9,17 @@
     private: false
   tasks:
   - name: Install MySQL server
-    ansile.builtin.dnf:
+    ansible.builtin.dnf:
       name: mysql-server
       state: latest
   
   - name: Start MySQL server
-    ansile.builtin.service:
+    ansible.builtin.service:
       name: mysqld
       enabled: yes
   
   - name: Enable MySQL server
-    ansile.builtin.service:
+    ansible.builtin.service:
       name: mysqld
       enabled: yes
 
