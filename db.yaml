@@ -28,7 +28,7 @@
       name: 
       - PyMySQL
       - cryptography
-      #executable: pip3.9
+      executable: pip3.9
 
   - name: setting up root password
     community.mysql.mysql_info:
