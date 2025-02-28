@@ -39,7 +39,6 @@
     ignore_errors: yes
     register: mysql_connection_output
   
-
   - name: print the output
     ansible.builtin.debug:
       msg: "output: {{mysql_connection_output}}"
