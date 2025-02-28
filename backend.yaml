@@ -43,15 +43,15 @@
       dest: /app
       remote_src: yes
 
-  # - name: Install npm dependencies
-  #   community.general.npm:
-  #     name: coffee-script
-  #     path: /app/npm install
-
   - name: Install npm dependencies
-    ansible.builtin.command: npm install
-    args: 
-      chdir: /app
+    community.general.npm:
+      name: coffee-script
+      path: /app/npm install
+
+  # - name: Install npm dependencies
+  #   ansible.builtin.command: npm install
+  #   args: 
+  #     chdir: /app
 
   - name: Copy backend service
     ansible.builtin.copy:
