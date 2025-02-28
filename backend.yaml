@@ -55,7 +55,7 @@
       dest: /etc/systemd/system/backend.service
 
   - name: check DB connection
-    community.mysql.mysql_info:
+    community.mysql.mysql_db:
       login_user: root
       login_password: "{{PASSWORD}}"
       login_host: "{{login_host}}"
