@@ -1,4 +1,4 @@
-- name: cnfigure DB server
+- name: configure DB server
   hosts: db
   become: yes
   vars:
@@ -30,7 +30,7 @@
       login_host: "{{login_host}}"
       filter: version
     register: mysql_connection_output
-    # ignore_errors: true
+    ignore_errors: true
 
   - name: print the output
     ansible.builtin.debug:
