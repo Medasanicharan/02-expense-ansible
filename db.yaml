@@ -23,22 +23,25 @@
       name: mysqld
       enabled: yes
 
-  - name: install python mysql dependencies
-    ansible.builtin.pip:
-      name: 
-      - PyMySQL
-      - cryptography
-      executable: pip3.9
+  # - name: install python mysql dependencies
+  #   ansible.builtin.pip:
+  #     name: 
+  #     - PyMySQL
+  #     - cryptography
+  #     #executable: pip3.9
 
-  - name: setting up root password
-    community.mysql.mysql_info:
-      login_user: root
-      login_password: "{{PASSWORD}}"
-      login_host: "{{login_host}}"
-      filter: version
-    register: mysql_connection_output
-    ignore_errors: true
+  # - name: setting up root password
+  #   community.mysql.mysql_info:
+  #     login_user: root
+  #     login_password: "{{PASSWORD}}"
+  #     login_host: "{{login_host}}"
+  #     filter: version
+  #   register: mysql_connection_output
+  #   ignore_errors: true
 
-  - name: print the output
-    ansible.builtin.debug:
-      msg: "output: {{mysql_connection_output}}"
+  # - name: print the output
+  #   ansible.builtin.debug:
+  #     msg: "output: {{mysql_connection_output}}"
+
+  - name: setup root password
+    ansible.builtin.command: mysql_secure_installation --set-root-pass ExpenseApp@1
