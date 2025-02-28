@@ -45,7 +45,7 @@
 
   - name: Install npm dependencies
     community.general.npm:
-      name: coffee-script
+      name: backend
       path: /app/npm install
 
   # - name: Install npm dependencies
