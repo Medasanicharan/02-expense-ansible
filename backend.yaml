@@ -61,7 +61,8 @@
       login_host: "{{login_host}}"
       filter: version
       target: /app/schema/backend.sql
-      state: dump #import
+      state: dump #
+      name: all
 
   
 
