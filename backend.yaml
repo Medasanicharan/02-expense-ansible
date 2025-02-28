@@ -49,10 +49,17 @@
   #   args: 
   #     chdir: /app
 
-  - name: Copy file with owner and permissions
+  - name: Copy backend service
     ansible.builtin.copy:
       src: backend.service
       dest: /etc/systemd/system/backend.service
+
+  - name: install python mysql dependencies
+    ansible.builtin.pip:
+      name: 
+      - PyMySQL
+      - cryptography
+      executable: pip3.9
 
   - name: check DB connection
     community.mysql.mysql_db:
