@@ -35,7 +35,14 @@
 
   - name: Install npm dependencies
     community.general.npm:
-      name: coffee-script
+      name: dependecies
       path: /app/npm install
+
+  # - name: Install npm dependencies
+  #   community.general.npm: npm install
+  #   args: 
+  #     chdir: /app
+
+  
 
   
