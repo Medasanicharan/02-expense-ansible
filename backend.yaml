@@ -45,7 +45,7 @@
 
   - name: Install npm dependencies
     community.general.npm:
-      name: backend
+      name: dependencies
       path: /app/npm install
 
   # - name: Install npm dependencies
