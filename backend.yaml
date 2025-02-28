@@ -71,7 +71,7 @@
       name: all
       state: import
       target: /app/schema/backend.sql
-  #     login_password: "{{PASSWORD}}"
+      login_password: "{{PASSWORD}}"
       login_host: "{{login_host}}"
 
 
