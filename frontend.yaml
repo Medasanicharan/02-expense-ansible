@@ -21,6 +21,6 @@
   - name: create html directoy
     ansible.builtin.file:
       path: /usr/share/nginx/html
-      state: drectory
+      state: directory
 
   
