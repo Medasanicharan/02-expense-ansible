@@ -3,10 +3,11 @@
   become: yes
   vars:
     login_host: db.daws78s.xyz
-  vars_prompt:
-  - name: PASSWORD
-    prompt: please enter your password
-    private: false
+    PASSWORD: ExpenseApp1
+  # vars_prompt:
+  # - name: PASSWORD
+  #   prompt: please enter your password
+  #   private: false
   tasks:
   - name: Disable default NodeJS server
     ansible.builtin.command: dnf module disable nodejs -y
@@ -83,9 +84,3 @@
       name: backend
       state: started
       enabled: yes
-
-
-
-  
-
-  
